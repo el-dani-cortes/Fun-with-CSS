@@ -1,0 +1,111 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu-open-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #c81938;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+  z-index: 1;
+}
+
+.menu-open {
+  display: none;
+}
+
+.menu-line-1::after {
+  content: "";
+  margin-bottom: 3px;
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: white;
+  transition: transform 0.2s;
+}
+
+.menu-line-2::after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: white;
+  transition: transform 0.2s;
+}
+
+.menu-line-3::after {
+  content: "";
+  margin-top: 3px;
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: white;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #c81938;
+  color: white;
+  margin-top: -41px;
+  text-decoration: none;
+  transition: margin 0.6s ease;
+}
+
+.menu-open:hover ~ label.menu-open-button {
+  transform: scale(1.2);
+}
+
+.menu-open:checked ~ label.menu-open-button {
+  width: 40px;
+  height: 40px;
+  transform: scale(1);
+  margin-bottom: 5px;
+}
+
+.menu-open:checked ~ label .menu-line-3::after {
+  display: none;
+}
+
+.menu-open:checked ~ label .menu-line-1::after {
+  transform: rotate(-45deg);
+  margin-bottom: -3px;
+}
+
+.menu-open:checked ~ label .menu-line-2::after {
+  transform: rotate(45deg);
+}
+
+.menu-open:checked ~ a.menu-item {
+  margin: 2px;
+}
+
+.menu-item:hover {
+  background-color: white;
+  color: #c81938;
+  border: 1px solid gray;
+}
